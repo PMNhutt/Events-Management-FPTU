@@ -1,0 +1,3 @@
+lấy hết trong file 'web' trừ 2 file 'META-INF' và 'WEB-INF' tại sợ bị lỗi nếu bê hết nguyên file web vô
+
+có khi không run được bài nếu bê hết web vô luôn đấy nên nhớ bỏ 2 file đó ra : D
