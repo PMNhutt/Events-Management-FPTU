@@ -1,0 +1,90 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 21, 2021, 8:16:36 PM
+    Author     : ACER
+*/
+* {
+    /* emmet */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+}
+
+body{
+    background: #dfe6e9;
+}
+
+
+
+.content{
+    text-align: -webkit-center;
+    height: 100%;
+}
+
+.form{
+    margin-top: 9%;
+}
+
+.textbox{
+    padding: 4px;
+}
+
+.btn{
+    cursor: pointer;
+    background-color: #7f8c8d;
+    padding: 4px;
+    font-weight: 600;
+    color: #ecf0f1;
+}
+
+.btn:hover {opacity: 0.6}
+
+.table{
+    margin-top: 2%;
+    margin-bottom: 18%;
+    border-collapse: collapse;
+
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr{
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table th{
+    text-align: center;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 3px solid #2c3e50;
+}
+
+
+
+
+

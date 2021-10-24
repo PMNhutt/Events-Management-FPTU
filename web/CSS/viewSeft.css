@@ -1,0 +1,124 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 21, 2021, 8:16:36 PM
+    Author     : ACER
+*/
+* {
+    /* emmet */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+}
+
+body{
+    background: #dfe6e9; 
+
+    height: 100%;
+}
+
+
+.content{
+    background-image: url('img/latest-blog.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 10%;
+    /*  text-align: -webkit-center; */
+    height: 87%;
+}
+
+.wrapper{
+    background-color: #dfe6e9;
+    width: 43%;
+    border-radius: 5px;
+    box-shadow: 0 5px 7px rgba(0,0,0,0.3);
+    margin-left: 30%;
+}
+
+
+.cover{
+    background-image: url('img/background1.jpg');
+    /*   background: #2c3e50; */
+    width: 100%;
+    border-radius: 5px;
+    height: 140px;
+}
+
+.profileImg{
+    height: 120px;
+    border-radius: 50%;
+    margin: 80px 0 0 45px;
+    border: 1px solid #dfe6e9;
+    padding: 7px;
+    background: #dfe6e9;
+}
+
+.user-name{
+    position: relative;
+    bottom: 46px;
+    right: 91px;
+}
+
+.text-basic{
+    width: 20%;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1px;
+    border-radius: 5px;
+    background: transparent;
+    border: none;
+    color: #000;
+    outline: none;
+    margin-left: 264px;
+}
+
+.textactive{
+    outline: 1px solid;
+    border: 1px solid #2c3e50;
+}
+
+.ti-pencil{
+    color: #000;
+    cursor: pointer;
+}
+
+#pencil.ti-pencil:hover{
+    color: #079992;
+}
+
+.infoo{
+    width: fit-content;
+    padding-top: 22px;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    bottom: 17px;
+    line-height: 25px;
+    left: 177px;
+}
+/*
+.p-role{
+    position: relative;
+    right: 103px;
+}
+*/
+.ti-email{
+    margin-right: 10px;
+}
+
+.ti-user{
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+

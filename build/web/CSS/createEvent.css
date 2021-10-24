@@ -1,0 +1,160 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 21, 2021, 8:16:36 PM
+    Author     : ACER
+*/
+* {
+    /* emmet */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+}
+
+body{
+    background: #dfe6e9;
+}
+
+
+
+.content{
+
+    /*text-align: -webkit-center;*/
+    height: 100%;
+
+}
+
+.form{
+    align-items: center;
+    margin-top: 8%;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 0 40px;
+    justify-content: space-between;
+}
+
+.section1{
+    margin-right: 20px;
+}
+
+.section2{
+    width: 850px;
+}
+
+.section1 select{
+    position: relative;
+    bottom: 20px;
+    left: 103px;
+}
+
+.section1 .btn-reset{
+    cursor: pointer;
+    background-color: #7f8c8d;
+    padding: 4px;
+    font-weight: 600;
+    color: #ecf0f1;
+    position: relative;
+    bottom: 20px;
+    left: 105px;
+}
+
+.btn-reset:hover{
+    opacity: 0.6;
+}
+
+.section2 ul{
+    margin-left: 18px;
+    list-style: decimal;
+    margin-bottom: 10px;
+}
+
+.textbox{
+    padding: 4px;
+}
+
+.textbox-des{
+    padding: 4px;
+    padding-bottom: 250px;
+    padding-right: 106px;
+}
+
+.textarea{
+    margin-top: 10px;
+}
+
+.btn{
+    cursor: pointer;
+    background-color: #7f8c8d;
+    padding: 4px;
+    font-weight: 600;
+    color: #ecf0f1;
+    margin-left: 5px;
+}
+
+.btn:hover {opacity: 0.6}
+
+.warning{
+    background: #eb4d4b;
+    max-width: fit-content;
+    /*   padding: 2px; */
+    color: #fff;
+    font-size: 13px;
+    border-radius: 5px;
+    /*  transform: translateX(-1110%); */
+    transition: transform 500ms ease;
+}
+
+.warning-active{
+
+    transform: translateX(0);
+}
+
+
+
+.table{
+    margin-top: 2%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr{
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table th{
+    text-align: center;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 3px solid #2c3e50;
+}
+
+
+
+
+

@@ -1,0 +1,105 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 21, 2021, 8:16:36 PM
+    Author     : ACER
+*/
+* {
+    /* emmet */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Comfortaa', cursive;
+    height: 100vh;
+    width: 100%;
+
+}
+
+
+
+#footer{
+    width: 100%;
+
+    position : sticky;
+    top:0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    background-color: #666666;
+}
+
+#footer .info{
+    justify-content: space-between;
+    display: flex;
+}
+
+#footer .info ul{
+    margin-left: 37px;
+    color: white;
+    line-height: 1.4;
+}
+
+.contact{
+    margin-left: 32%;
+    color : #fff;
+    line-height: 4;
+}
+
+#footer .socialList{
+    padding-top: 10px;
+}
+
+#footer .info .socialList {
+    padding: 5px 25px;
+    font-size: 50px;
+
+}
+
+#footer .info .socialList a{
+    padding-right: 17px;
+    text-decoration: none;
+    color :orange;
+}
+
+#footer .info .socialList a:hover{
+    color: #6ab04c;
+    transition: 0.5s;
+}
+
+#myBtn {
+  
+  position: fixed;
+  bottom: 115px;
+  right: 20px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #f0932b;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#myBtn i{
+    color: #fff;
+}
+
+#myBtn:hover {
+    transform: scale(1.2);
+  background-color: #6ab04c;
+}
+
+
+
