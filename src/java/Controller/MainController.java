@@ -26,6 +26,10 @@ public class MainController extends HttpServlet {
     private final String LOGOUT = "LogoutController";
     private final String ROLES_UPDATE_SELF = "UpdateSelfController";
     private final String ADMIN_SEARCH_USER = "ViewUserController";
+    private final String ADMIN_SEARCH_LOCATION = "ViewLocationController";
+    private final String ADMIN_CREATE_LOCATION = "CreateLocationController";   
+    private final String ADMIN_UPDATE_LOCATION = "UpdateLocationController";   
+    private final String ADMIN_REMOVE_LOCATION = "RemoveLocationController";
     private final String ADMIN_CHANGE_STATUS = "ChangeStatusController";
     private final String ADMIN_UPDATE_USER = "UpdateUserController";
     private final String USER_SEARCH_EVENT = "ViewEventController";
@@ -33,8 +37,12 @@ public class MainController extends HttpServlet {
     private final String EM_CREATE_EVENT_CHANGE_WEEK = "CalendarController";
     private final String EM_VIEW_EVENT_EDIT = "ViewOwnedEventController";
     private final String EM_UPDATE_EVENT= "UpdateEventController";
+    private final String EM_REMOVE_EVENT= "RemoveEventController";
     private final String USER_VIEW_POST = "ViewPostController";
+    private final String USER_VIEW_MAINPAGE = "ViewMainPageController";
     private final String USER_VIEW_FOLLOWED_EVENT = "ViewFollowedEventController";
+    private final String ADD_MORE_EVENT_COMMENT = "AddMoreEventCommentController";
+    private final String ADD_MORE_POST_COMMENT = "AddMorePostCommentController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -63,12 +71,22 @@ public class MainController extends HttpServlet {
                 url = USER_SEARCH_EVENT;
             } else if (action.equals("Logout")) {
                 url = LOGOUT;
+            } else if (action.equals("LoadMainPage")) {
+                url = USER_VIEW_MAINPAGE;
             } else if (action.equals("UpdateUserName")) {
                 url = ROLES_UPDATE_SELF;
             } else if (action.equals("Confirm Update")) {
                 url = ADMIN_UPDATE_USER;
             } else if (action.equals("ChangeStatus")) {
                 url = ADMIN_CHANGE_STATUS;
+            } else if (action.equals("Add Location")) {
+                url = ADMIN_CREATE_LOCATION;
+            } else if (action.equals("Update Location")) {
+                url = ADMIN_UPDATE_LOCATION;
+            } else if (action.equals("LoadLocations")) {
+                url = ADMIN_SEARCH_LOCATION;
+            } else if (action.equals("Remove Location")) {
+                url = ADMIN_REMOVE_LOCATION;
             } else if (action.equals("Create Event")) {
                 url = EM_CREATE_EVENT;
             } else if (action.equals("LoadEventsEditing")) {
@@ -81,6 +99,12 @@ public class MainController extends HttpServlet {
                 url = USER_VIEW_POST;
             } else if (action.equals("LoadFollowedEvents")) {
                 url = USER_VIEW_FOLLOWED_EVENT;
+            } else if (action.equals("Remove Event")){
+                url = EM_REMOVE_EVENT;
+            } else if (action.equals("AddEventComment")){
+                url = ADD_MORE_EVENT_COMMENT;
+            } else if (action.equals("AddPostComment")){
+                url = ADD_MORE_POST_COMMENT;
             } 
         } catch (Exception e) {
             request.setAttribute("ERROR_MESSAGE", "An error has occured in MainController!");

@@ -26,6 +26,13 @@
             <c:param name="search" value=""></c:param>  
             <c:param name="action" value="LoadEvents"></c:param>           
         </c:url>
+        <c:url var="view_mainpage" value="MainController">
+            <c:param name="action" value="LoadMainPage"></c:param>           
+        </c:url>
+        <c:url var="view_location" value="MainController"> 
+            <c:param name="search" value=""></c:param>    
+            <c:param name="action" value="LoadLocations"></c:param>            
+        </c:url>
         <c:url var="view_followed_event" value="MainController">
             <c:param name="view_mode" value="followed"></c:param>   
             <c:param name="index" value="1"></c:param>   
@@ -55,9 +62,9 @@
                 <c:if test="${not empty sessionScope.CURRENT_USER}">
 
                     <c:if test="${sessionScope.MODE ne 'ADMIN_MODE'}">
-                        <li class="lm"> <a  class="l" href="${view_event}"></i>Main Page</a> </li>
+                        <li class="lm"> <a  class="l" href="${view_mainpage}"></i>Main Page</a> </li>
                         <li class="lm"> <a class="l" href="about.jsp"></i>About</a> </li>
-                        <li class="lm"> <a class="l" href="#${view_event}">Events</a>   </li>
+                        <li class="lm"> <a class="l" href="${view_event}">Events</a>   </li>
                         <li class="lm"><a class="l"  href="${view_followed_event}">Following Events</a> </li>
                         <li class="lm"> <a class="l" href="${view_post}">Posts</a>   </li>
                         </c:if>
@@ -77,6 +84,7 @@
                         <c:if test="${sessionScope.MODE eq 'ADMIN_MODE'}">
                         <li class="lm"><a class="l" href="${view_event}">Switch to User mode</a></li> 
                         <li class="lm"><a class="l" href="${view_user}">User Management</a></li>
+                        <li class="lm"><a class="l" href="${view_location}">Location Management</a></li>
                         </c:if>
 
                     <li class="last">
@@ -95,7 +103,7 @@
                 </c:if>
             </ul>
 
-            <a data-tooltip="Go to main page" href="${view_event}"><img  id="imgLogo" src ="img\Logo-FU-03.png"   alt="Go to main page"></a>
+            <a data-tooltip="Go to main page" href="${view_mainpage}"><img  id="imgLogo" src ="img\Logo-FU-03.png"   alt="Go to main page"></a>
 
         </div>
         <script>

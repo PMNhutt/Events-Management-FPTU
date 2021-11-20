@@ -57,14 +57,14 @@ body{
 }
 
 .content-member .member-2{
-    
+
     transition: 0.5s;
     height: fit-content;
     position: -webkit-sticky;
     position: sticky;
     z-index: 2;
     top: 93px;
-    
+
     text-align: center;
     display: grid;
     grid-template-rows: 143px 143px;
@@ -79,7 +79,7 @@ body{
 
 
 .content-member .member-2 .member-2-body-1{
-   
+
     background: #f5f6fa;
     padding: 10px;
     border-radius: 5px;
@@ -184,6 +184,18 @@ body{
 
 .content-bot .location{
     margin-left: 19px;
+}
+
+.comment-section{
+    background: #f5f6fa;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 5px;
+    line-height: 35px;
+}
+
+.addComment{
+
 }
 
 

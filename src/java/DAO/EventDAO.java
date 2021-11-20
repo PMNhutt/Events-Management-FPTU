@@ -27,7 +27,7 @@ import java.util.List;
  * @author Admin
  */
 public class EventDAO {
-    
+
     public int getLastId() {
         //get the newest created id from tblEvents
         //SELECT MAX(eventId) FROM tblEvents
@@ -90,6 +90,7 @@ public class EventDAO {
         }
         return list;
     }
+
     public List<EventDTO> getListFollowedEvent(String search, UserDTO user) throws SQLException {
         List<EventDTO> list = new ArrayList<>();
         Connection conn = null;
@@ -130,25 +131,59 @@ public class EventDAO {
         }
         return list;
     }
-    public void checkStatusEvent(List<EventDTO> list){
+
+    public List<EventDTO> checkStatusEvent(List<EventDTO> list) {
         Connection conn = null;
-        ResultSet rs= null;
         PreparedStatement stm = null;
         LocalDate date = null;
         Time time = null;
         try {
             conn = DBConnection.getConnection();
-            if(conn!=null){
+            if (conn != null) {
                 date = LocalDate.now();
                 time = Time.valueOf(LocalTime.now());
-                        list.forEach((_item) -> {
-                            String sql = "UPDATE tblEvents "
-                                    + "VALUES()"
-                                    + "WHERE eventId = ?";
-                });              
+                boolean check;
+                for (EventDTO eventDTO : list) {
+                    Date startDateEvent = eventDTO.getStartDatetime();
+                    String status = "Pending";
+                    check = false;
+                    if (startDateEvent.equals(Date.valueOf(date))) {
+                        Time startTime = eventDTO.getStartSlot().getStartTime();
+                        Time endTime = eventDTO.getEndSlot().getEndTime();
+                        if (startTime.before(time)) {
+                            if (endTime.before(time)) {
+                                status = "On-going";
+                            } else {
+                                status = "Expire";
+                            }
+                        }
+                        check = true;
+                    } else if (startDateEvent.before(Date.valueOf(date))) {
+                        status = "Expire";
+                        check = true;
+                    }
+                    if (check) {
+                        String sql = "UPDATE tblEvents "
+                            + "SET statusId = (SELECT statusId FROM tblStatusEvent WHERE statusName = ?)"
+                            + "WHERE eventId = ?";
+                        int eventId = eventDTO.getEventId();
+                        stm = conn.prepareStatement(sql);
+                        stm.setString(1, status);
+                        stm.setInt(2, eventId);
+                        boolean bool = stm.executeUpdate() > 0;
+                        if(bool){
+                            eventDTO.setStatus(status);
+                        }
+                    }
+                    
+                }
             }
         } catch (Exception e) {
+            log("Error at EventDAO - checkStatusEvent: "+ e.toString());
+        } finally {
+            DBConnection.closeQueryConnection(conn, stm, null);
         }
+        return list;
     }
     public List<EventDTO> getListOwnedEvent(UserDTO user) throws SQLException {
         List<EventDTO> list = new ArrayList<>();
@@ -187,6 +222,7 @@ public class EventDAO {
         }
         return list;
     }
+    
 
     public List<EventDTO> getListEventByPage(String search, int index, int pageSize) throws SQLException {
         List<EventDTO> list = new ArrayList<>();
@@ -232,6 +268,7 @@ public class EventDAO {
 
                 list.add(new EventDTO(eventId, user, title, description, location, createDatetime, startDate, startSlot, endSlot, status));
             }
+            list = checkStatusEvent(list);
         } catch (Exception e) {
             log("Error at EventDAO - getListEventByPage: " + e.toString());
         } finally {
@@ -239,6 +276,7 @@ public class EventDAO {
         }
         return list;
     }
+
     public List<EventDTO> getFollowedEventByPage(UserDTO user, String search, int index, int pageSize) throws SQLException {
         List<EventDTO> list = new ArrayList<>();
         Connection conn = null;
@@ -281,6 +319,7 @@ public class EventDAO {
 
                 list.add(new EventDTO(eventId, author, title, description, location, createDatetime, startDate, startSlot, endSlot, status));
             }
+            list = checkStatusEvent(list);
         } catch (Exception e) {
             log("Error at EventDAO - getFollowedEventsByPage: " + e.toString());
         } finally {
@@ -288,6 +327,7 @@ public class EventDAO {
         }
         return list;
     }
+
     public List<EventDTO> getListEventByPageByOwner(UserDTO user, String search, int index, int pageSize) throws SQLException {
         List<EventDTO> list = new ArrayList<>();
         Connection conn = null;
@@ -332,6 +372,7 @@ public class EventDAO {
 
                 list.add(new EventDTO(eventId, user, title, description, location, createDatetime, startDate, startSlot, endSlot, status));
             }
+            list = checkStatusEvent(list);
         } catch (Exception e) {
             log("Error at EventDAO - getListEventByPage: " + e.toString());
         } finally {
@@ -448,6 +489,7 @@ public class EventDAO {
         }
         return rs;
     }
+
     public int countListOwnedEvent(UserDTO user) {
         int rs = 0;
         EventDAO dao = new EventDAO();

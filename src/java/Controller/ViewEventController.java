@@ -21,8 +21,8 @@ import javax.servlet.http.HttpSession;
  */
 public class ViewEventController extends HttpServlet {
 
-    private final String ERROR = "mainPage.jsp";
-    private final String SUCCESS = "mainPage.jsp";
+    private final String ERROR = "viewEvent.jsp";
+    private final String SUCCESS = "viewEvent.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,7 +45,7 @@ public class ViewEventController extends HttpServlet {
                 int endPage = (int) Math.ceil(((double) countList / pageSize));
                 session.setAttribute("endPage", endPage);
                 request.setAttribute("LIST_EVENT", list);
-                request.setAttribute("EVENT_MESSAGE", "Page" + index);
+                request.setAttribute("EVENT_MESSAGE", "Events" );
                 request.setAttribute("Search", search);
                 session.setAttribute("index", index);
                 if (view_mode != null) {
@@ -53,7 +53,7 @@ public class ViewEventController extends HttpServlet {
                 }               
                 url = SUCCESS;
             } else {
-                request.setAttribute("EVENT_MESSAGE", "No Event");
+                request.setAttribute("EVENT_MESSAGE", "No event");
             }
         } catch (Exception e) {
             log("Error at ViewEventController: " + e.toString());

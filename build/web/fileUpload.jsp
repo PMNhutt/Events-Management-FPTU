@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <style>
+  <%--      <style>
             .content{
                 line-height: 34px;
                 padding: 276px;
@@ -19,13 +19,13 @@
             }
             
             .btn:hover {opacity: 0.6}
-        </style>
+        </style> --%>
         <title>Upload Picture</title>
     </head>
     <body>
-        <%@include file="header.jsp" %>
 
-        <div class="content">
+
+        <div >
             
             Choose your picture to upload: </br>
         <c:if test="${not empty requestScope.id}">
@@ -39,19 +39,23 @@
             <input type="file" name="file" size="50" accept="image/*"/>
             <input type="hidden" name="path" value="../images/"/>
             </br>
-            <button class="btn" type="submit" name="action" value="Upload File">Upload File</button>
-        </form>
+            <button onclick ="myFunction()" type="submit" name="action" value="Upload File">Upload File</button>
+        </form> 
         <p>${requestScope.ERROR_MESSAGE}</p>
         <c:if test="${sessionScope.CURRENT_USER.role eq 'Event Manager'}">
-            <button><a href="ViewOwnedEventController">Cancel</a></button>
+            <button><a style="text-decoration: none" href="ViewOwnedEventController">Cancel</a></button>
         </c:if>
         <c:if test="${sessionScope.CURRENT_USER.role eq 'Mentor/Lecturer'}">
-            <button><a href="ViewOwnedPostController">Cancel</a></button>
+            <button><a style="text-decoration: none" href="ViewOwnedPostController">Cancel</a></button>
         </c:if>
             
         </div>
 
+<script>
+            function myFunction() {
+                window.close();
+            }
+        </script>
 
-        <%@include file="footer.jsp" %>
     </body>
 </html>

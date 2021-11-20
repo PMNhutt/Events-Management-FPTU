@@ -50,20 +50,17 @@
 
             %>
            
-            <h1 id="${view_event}" class = "contentH1">On Going Events</h1>
+            
 
 
             <div class="showvent">
                 <%-- <a href="viewEvent.jsp"><button class="btnShow"><span>More </span></button></a>--%>
-                <%@include file="viewEvent.jsp" %>
+                <%--@include file="viewEvent.jsp" --%>
+                <%@include file="mainPageEventPost.jsp" %>
 
             </div>
 
-
-
         </div>
-
-
 
         <%@include file="footer.jsp" %>
 

@@ -41,13 +41,18 @@ public class ViewPostDetailsController extends HttpServlet {
             String search = request.getParameter("search");
             String tempIndex = request.getParameter("index");
             int index = 1;
-            if (tempIndex!=null && !tempIndex.isEmpty()) {
+            if (tempIndex != null && !tempIndex.isEmpty()) {
                 index = Integer.parseInt(tempIndex);
             }
             PostDAO pDao = new PostDAO();
             PostDTO post = pDao.getPostById(postId);
             if (post != null) {
                 List<String> video = Extension.AI.detectEmbededLinks(post.getVideo());
+                for (String o : video) {
+                    if (!o.contains("http")) {
+                        video.remove(o);
+                    }
+                }
                 request.setAttribute("LIST_VIDEO", video);
                 request.setAttribute("SELECTED_POST", post);
                 request.setAttribute("Search", search);

@@ -24,8 +24,8 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "ViewFollowedEventController", urlPatterns = {"/ViewFollowedEventController"})
 public class ViewFollowedEventController extends HttpServlet {
-    private final String SUCCESS = "mainPage.jsp";
-    private final String FAIL = "mainPage.jsp";
+    private final String SUCCESS = "viewEvent.jsp";
+    private final String FAIL = "viewEvent.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -56,7 +56,7 @@ public class ViewFollowedEventController extends HttpServlet {
             int endPage = (int) Math.ceil((double) countList / pageSize);
             if (list != null && !list.isEmpty()) {
                 request.setAttribute("LIST_EVENT", list);
-                request.setAttribute("EVENT_MESSAGE", "Page"+index);
+                request.setAttribute("EVENT_MESSAGE", "Followed Events");
                 request.setAttribute("Search", search);
                 session.setAttribute("endPage", endPage);
                 session.setAttribute("index", index);
@@ -65,7 +65,7 @@ public class ViewFollowedEventController extends HttpServlet {
                 }               
                 url = SUCCESS;
             } else {
-                request.setAttribute("EVENT_MESSAGE", "No Following Event");
+                request.setAttribute("EVENT_MESSAGE", "You haven't followed any event yet");
             }
         } catch (Exception e) {
             log("Error at ViewEventController: " + e.toString());

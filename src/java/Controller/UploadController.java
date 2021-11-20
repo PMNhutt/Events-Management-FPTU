@@ -23,7 +23,8 @@ import javax.servlet.http.HttpServlet;
 @WebServlet(name = "UploadController", urlPatterns = {"/UploadController"})
 public class UploadController extends HttpServlet {
 
-    private final String SUCCESS = "ViewOwnedEventController";
+   private final String SUCCESS = "ViewOwnedEventController";
+ //   private final String SUCCESS = "createEvent.jsp";
     private final String FAIL = "fileUpload.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -35,8 +36,7 @@ public class UploadController extends HttpServlet {
         int maxMemSize = 5000 * 1024;
         // Verify the content type
         String contentType = request.getContentType();
-      //  String path = AppDirectory.getAppDir();
-      String path = "C:\\Users\\USER\\Documents\\NetBeansProjects\\EventManagementFPT\\web\\images";
+        String path = AppDirectory.getAppDir();
         if (!path.equals("")) {
             //create dir based on eventId
             if ((contentType.contains("multipart/form-data"))) {

@@ -56,7 +56,26 @@ body{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.table-location{
+    margin-top: 2%;
+    margin-bottom: 12%;
+    border-collapse: collapse;
+
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
 .table thead tr{
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table-location thead tr{
     background-color: #2c3e50;
     color: #ffffff;
     text-align: left;
@@ -67,8 +86,17 @@ body{
     text-align: center;
 }
 
+.table-location th{
+    text-align: center;
+}
+
 .table th,
 .table td {
+    padding: 12px 15px;
+}
+
+.table-location th,
+.table-location td {
     padding: 12px 15px;
 }
 
@@ -76,11 +104,23 @@ body{
     border-bottom: 1px solid #dddddd;
 }
 
+.table-location tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
 .table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
+.table-location tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
 .table tbody tr:last-of-type {
+    border-bottom: 3px solid #2c3e50;
+}
+
+.table-location tbody tr:last-of-type {
     border-bottom: 3px solid #2c3e50;
 }
 

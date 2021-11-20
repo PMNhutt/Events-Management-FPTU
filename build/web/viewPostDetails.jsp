@@ -35,20 +35,39 @@
 
                         <div class="content-bot">
                             <p>Description: ${SELECTED_POST.content}</p>
-                            
+
 
                             <c:forEach var="url" items="${LIST_VIDEO}">
                                 <iframe width="560" height="315" src="${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </c:forEach>
                         </div>
+                        <div class="comment-section">
+                            <form action="MainController" method="POST">
+                                <input type="text" name="cmt">
+                                <input type="submit" name="action" value="AddPostComment"/>
+                            </form>
+
+                            <c:if test="${not empty LIST_COMMENT}">
+                                <c:forEach var="cmt" varStatus="count" items="${LIST_COMMENT}">
+                                    ${cmt.user.username}: ${cmt.content}<br>
+                                </c:forEach>   
+                            </c:if>
+                            <c:if test="${sessionScope.END_OF_COMMENT}">
+                                <button>
+                                    <a href="LoadMorePostCommentController?countListCmt=${LIST_COMMENT.size()}">View more 10 comment</a>
+                                </button>
+                            </c:if>
+                        </div>
                     </c:if>
-                    <button class="btn">
-                        <a href="${back}">More Posts</a>
-                    </button>
+
                     <p style="font-size: 16px; font-weight: bolder; text-align: right; font-style: italic">${SELECTED_POST.user.username}</p>
                 </div>
-
+                <%--
+                <button class="btn">
+                    <a href="${back}">More Posts</a>
+                </button> --%>
             </div>
+
         </div>
         <%@include file="footer.jsp" %> 
     </body>

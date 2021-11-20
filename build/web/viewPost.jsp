@@ -38,7 +38,7 @@
                                 <div class="img-div"><img src="./images/${post.postId}.png" onerror="this.src='./images/default.png'" width="100" height="120" /></div>
 
                                 <div class="member-content" style="bottom: 190px; padding-bottom: 35px;">
-                                    <h3 class="member-title">
+                                    <h3 class="member-title" style="margin-bottom: 12%">
                                         <a  href="ViewPostDetailsController?postId=${post.postId}&index=${index}&search=${requestScope.Search}">${post.title}</a>
                                     </h3>
                                     <p title="Author" style="padding: 7px 0;"><i  title="Author" class="fas fa-user-tie"></i> ${post.user.username}</p>

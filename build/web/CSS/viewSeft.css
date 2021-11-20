@@ -81,12 +81,12 @@ body{
     border: 1px solid #2c3e50;
 }
 
-.ti-pencil{
+#pencil{
     color: #000;
     cursor: pointer;
 }
 
-#pencil.ti-pencil:hover{
+#pencil:hover{
     color: #079992;
 }
 

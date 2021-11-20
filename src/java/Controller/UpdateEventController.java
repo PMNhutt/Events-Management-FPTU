@@ -13,11 +13,8 @@ import DTO.LocationDTO;
 import DTO.SlotDTO;
 import DTO.UserDTO;
 import Extension.AI;
-import Extension.Calendar;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,8 +29,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "UpdateEventController", urlPatterns = {"/UpdateEventController"})
 public class UpdateEventController extends HttpServlet {
-
-    private final String SUCCESS = "fileUpload.jsp";
+    private final String SUCCESS = "UploadController";
     private final String FAIL = "UpdateEventViewController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -47,6 +43,8 @@ public class UpdateEventController extends HttpServlet {
             String title = request.getParameter("title");
             String description = request.getParameter("description");
             String locationId = request.getParameter("locationId");
+            title = AI.inputVietnamese(title);
+            description = AI.inputVietnamese(description);
             String[] uri = request.getParameterValues("selectedTime");
             boolean check = true;
             if (Id != null) {

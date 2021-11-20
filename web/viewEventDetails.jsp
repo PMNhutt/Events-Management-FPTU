@@ -47,11 +47,14 @@
                             <p>   
                                 <%
                                     //test iframe
-                                    String description = "https://www.youtube.com/watch?v=akgNYX8i9Xs  https://youtu.be/kFZo7yJ2ONg  https://www.youtube.com/watch?v=AE3eD-XV4vg  https://www.youtube.com/watch?v=06-XXOTP3Gc&list=RD06-XXOTP3Gc&start_radio=1";
+                                    String description = "https://www.youtube.com/watch?v=b4fWaAibbIw  https://www.youtube.com/watch?v=-u875aiTbI0 ";
                                     List<String> list = AI.detectEmbededLinks(description);
                                     request.setAttribute("DESCRIPTION", list);
                                     //end test
-                                %>
+%>
+                                
+
+
                                 <c:forEach var="desc" varStatus="counter" items="${DESCRIPTION}">
                                     <c:if test="${counter.count % 2 != 0}">
                                         ${desc}
@@ -74,7 +77,7 @@
                             <p  class="location">${SELECTED_EVENT.location.locationName}</p>
                             <div class="member-2-body-2">
                                 <button class="btn" name="follow" title="Follow this event" value="${follow}"><i class="fas fa-heart"></i><a href="FollowEventController">${follow == 1?'Following':'Follow'}</a></button>
-                                
+
                             </div>
 
                         </div>
@@ -86,6 +89,26 @@
                         </div>
 
                     </div>
+
+                    <div class="comment-section">
+                        <h3>Leave comment here</h3>
+                        <form action="MainController" method="POST">
+                            <input type="text" name="cmt">
+                            <input class="addComment" type="submit" name="action" value="AddEventComment"/>
+                        </form>
+
+                        <c:if test="${not empty LIST_COMMENT}">
+                            <c:forEach var="cmt" varStatus="count" items="${LIST_COMMENT}">
+
+                                ${cmt.user.username}: ${cmt.content}<br>
+                            </c:forEach>   
+                        </c:if>
+                        <c:if test="${sessionScope.END_OF_COMMENT}">
+                            <button>
+                                <a href="LoadMoreEventCommentController?countListCmt=${LIST_COMMENT.size()}">View more 10 comment</a>
+                            </button>
+                        </c:if>
+                    </div>
                 </c:if>
 
             </div>
@@ -95,7 +118,7 @@
 
 
         <%@include file="footer.jsp" %> 
-                <script>
+        <script>
 //Get the button
             var ad = document.getElementById("moreEvent");
             var mybutton = document.getElementById("myBtn");
@@ -107,14 +130,14 @@
 
             function scrollFunction() {
                 if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                //    mybutton.style.display = "block";
+                    //    mybutton.style.display = "block";
                     ad.style.opacity = "1";
                     ad.style.visibility = "visible";
                     ad.style.transform = "translateY(0)";
                     mybutton.style.opacity = "1";
                     mybutton.style.visibility = "visible";
-                }  else {
-               //     mybutton.style.display = "none";
+                } else {
+                    //     mybutton.style.display = "none";
                     mybutton.style.opacity = "0";
                 }
             }

@@ -19,7 +19,7 @@
         <%@include file="header.jsp" %>
 
         <div id="content" style="background-image: url('img/filter-bg.png');">
-            <h1 class = "contentH1" style="margin-top: 80px">Edit Your Events</h1>
+            <h1 class = "contentH1" style="margin-top: 80px; margin-bottom: 27px">Edit Your Events</h1>
             <p style="text-align: center;" >${requestScope.EVENT_MESSAGE}</p>
             <div class="member-list">
 
@@ -55,12 +55,16 @@
             </c:if>
 
 
-            <div class="switchpage">
-                <c:forEach begin="1" end="${sessionScope.endPage}" var="i">
-                    <a class="page-btn" href="ViewOwnedEventController?index=${i}&search=${Search}">${i}</a>
-                </c:forEach>
+             <div class="test-paging">
+
+            <div class="pagination">
+                <ul><!--pages or li are comes from javascript -->  </ul>                                                                 
             </div>
         </div>
+        </div>
         <%@include file="footer.jsp" %>
+        <script>
+            <%@include file="JS\pagingOwnEvent.js" %>
+        </script>
     </body>
 </html>

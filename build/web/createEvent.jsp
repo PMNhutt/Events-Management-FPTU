@@ -4,6 +4,7 @@
     Author     : WilliamTrung
 --%>
 
+<%@page import="DAO.EventDAO"%>
 <%@page import="DAO.SlotDAO"%>
 <%@page import="DTO.SlotDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -25,6 +26,11 @@
         <script>tinymce.init({selector: 'textarea'});</script>
     </head>
     <body>
+        <%
+            int id = new EventDAO().getLastId();
+            id++;
+            request.setAttribute("id", id);
+        %>
         <%@include file="header.jsp" %>
         <%
             List<LocationDTO> locationList = new LocationDAO().getListLocations("");
@@ -34,23 +40,26 @@
         <div class="content" style="background-image: url('img/filter-bg.png');">
 
 
-            <form id="fr" class="form" action="MainController" method="GET">
+            <form id="fr" class="form-event" action="MainController" method="GET">
                 <section class="section1">
-                    Title: <input class="textbox" style="margin-left: 60px; padding-right: 29px;" type="text" name="title"/> <p class="warning">${requestScope.ERROR_TITLE}</p></br>
+                    <div>
+                        Title: <input class="textbox" style="margin-left: 60px; padding-right: 29px;" type="text" name="title"/> <p class="warning">${requestScope.ERROR_TITLE}</p></br>
 
-                    Location: <p>${requestScope.ERROR_LOCATION}</p>
-                    <select class="textbox" name="locationId">
-                        <c:forEach var="location" items="${requestScope.LIST_LOCATION}">
-                            <option value="${location.locationId}">
-                                ${location.locationName}
-                            </option>
-                        </c:forEach>
-                    </select>
-                    <input class="btn-reset" type="reset" value="Reset"/></br> 
-                    <%--       <input class="textbox-des" type="text" name="description"/>  --%>
-                    Description:   <textarea class="textarea"  name="description" cols="50" rows="10" form="fr" ></textarea> <p class="warning">${requestScope.ERROR_DESCRIPTION}</p>
+                        Location: <p>${requestScope.ERROR_LOCATION}</p>
+                        <select class="textbox" name="locationId">
+                            <c:forEach var="location" items="${requestScope.LIST_LOCATION}">
+                                <option value="${location.locationId}">
+                                    ${location.locationName}
+                                </option>
+                            </c:forEach>
+                        </select>
+                        <input class="btn-reset" type="reset" value="Reset"/></br> 
+                        <%--       <input class="textbox-des" type="text" name="description"/>  --%>
+                        Description:   <textarea class="textarea"  name="description" cols="50" rows="10" form="fr" ></textarea> <p class="warning">${requestScope.ERROR_DESCRIPTION}</p>
+                    </div>
 
-                </section>         
+
+                </section>
                 <section class="section2">
                     <ul>
                         <li>Choose start slot</li>
@@ -71,6 +80,7 @@
                         request.setAttribute("week", week);
                     %>
                     <table class="table" border="2">
+                        <input type="hidden" name="where" value="createEvent.jsp"/>
                         <input type="hidden" name="action" value="Change Week"/>
                         <input type="hidden" name="week" value="${requestScope.week}"/>
                         <button class="btn" name="weekChange" value="-">Previous Week</button>
@@ -105,5 +115,11 @@
             </form>
         </div>
         <%@include file="footer.jsp" %> 
+
+        <script>
+            function myFunction() {
+                var myWindow = window.open("fileUpload.jsp?id=”${id},", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+            }
+        </script>
     </body>
 </html>
