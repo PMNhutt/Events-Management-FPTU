@@ -169,6 +169,21 @@ body{
     border: none;
 }
 
+.addComment{
+    cursor: pointer;
+    color: #fff;
+    background: #f0932b;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.addComment:hover{
+    background-color: #6ab04c;
+    transition: 0.5s;
+
+}
+
 .btn a{
     text-decoration: none;
     color: #ecf0f1;

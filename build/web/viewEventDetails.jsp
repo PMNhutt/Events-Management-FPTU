@@ -77,7 +77,7 @@
                             <p  class="location">${SELECTED_EVENT.location.locationName}</p>
                             <div class="member-2-body-2">
                                 <button class="btn" name="follow" title="Follow this event" value="${follow}"><i class="fas fa-heart"></i><a href="FollowEventController">${follow == 1?'Following':'Follow'}</a></button>
-
+                                <button class="btn" name="join" title="Join in this event" value="${join}"><i class="fas fa-sign-in-alt"></i><a href="JoinEventController">${join == 1?'Joined':'Join'}</a></button>
                             </div>
 
                         </div>
