@@ -44,7 +44,7 @@
                         <div class="comment-section">
                             <form action="MainController" method="POST">
                                 <input type="text" name="cmt">
-                                <input type="submit" name="action" value="AddPostComment"/>
+                                <input class="addComment" type="submit" name="action" value="AddPostComment"/>
                             </form>
 
                             <c:if test="${not empty LIST_COMMENT}">

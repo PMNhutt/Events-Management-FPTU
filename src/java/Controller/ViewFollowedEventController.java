@@ -56,7 +56,7 @@ public class ViewFollowedEventController extends HttpServlet {
             int endPage = (int) Math.ceil((double) countList / pageSize);
             if (list != null && !list.isEmpty()) {
                 request.setAttribute("LIST_EVENT", list);
-                request.setAttribute("EVENT_MESSAGE", "Followed Events");
+                request.setAttribute("EVENT_MESSAGE", "Page"+index);
                 request.setAttribute("Search", search);
                 session.setAttribute("endPage", endPage);
                 session.setAttribute("index", index);
@@ -65,7 +65,7 @@ public class ViewFollowedEventController extends HttpServlet {
                 }               
                 url = SUCCESS;
             } else {
-                request.setAttribute("EVENT_MESSAGE", "You haven't followed any event yet");
+                request.setAttribute("EVENT_MESSAGE", "No event");
             }
         } catch (Exception e) {
             log("Error at ViewEventController: " + e.toString());

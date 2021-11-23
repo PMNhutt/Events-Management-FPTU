@@ -52,31 +52,33 @@
             <c:if test="${sessionScope.SELECTED_EVENT!=null}">
                 <%--      <button><a href="${back}">Back</a></button> --%>
 
-                <form  id="fr" class="form" action="MainController" method="POST">
+                <form  id="fr" class="form-event" action="MainController" method="POST">
                     <input type="hidden" name="eventId" value="${sessionScope.SELECTED_EVENT.eventId}"/>
                     <section  class="section1">
                         <div>
-                        Title: <input class="textbox" style="margin-left: 60px; padding-right: 29px;" type="text" name="title" placeholder="${sessionScope.SELECTED_EVENT.title}" value="${sessionScope.SELECTED_EVENT.title}"/><p class="warning">${requestScope.ERROR_TITLE}</p></br>
+                            Title: <input class="textbox" style="margin-left: 60px; padding-right: 29px;" type="text" name="title" placeholder="${sessionScope.SELECTED_EVENT.title}" value="${sessionScope.SELECTED_EVENT.title}"/><p class="warning">${requestScope.ERROR_TITLE}</p></br>
 
-                        Location: <p>${requestScope.ERROR_LOCATION}</p>
-                        <input type="hidden" name="locationTemp" value="${location.locationId}"/>
-                        <select class="textbox" name="locationId">            
-                            <option disabled selected value="${sessionScope.SELECTED_EVENT.location.locationId}">${sessionScope.SELECTED_EVENT.location.locationName}</option>
-                            <c:forEach var="location" items="${requestScope.LIST_LOCATION}">
-                                <option value="${location.locationId}">
-                                    ${location.locationName}
-                                </option>
-                            </c:forEach>
-                        </select>
-                        <input class="btn-reset" type="reset" value="Reset"/></br>  
-                        Description: <textarea class="textarea"  name="description" cols="50" rows="10" form="fr" value="${sessionScope.SELECTED_EVENT.description}"></textarea> <p class="warning">${requestScope.ERROR_DESCRIPTION}</p>
-                        <button class="btn">
-                            <a style="text-decoration: none; color: #fff" href="${back}">Back</a>
-                        </button>
+                            Location: <p>${requestScope.ERROR_LOCATION}</p>
+                            <input type="hidden" name="locationTemp" value="${location.locationId}"/>
+                            <select class="textbox" name="locationId">            
+                                <option disabled selected value="${sessionScope.SELECTED_EVENT.location.locationId}">${sessionScope.SELECTED_EVENT.location.locationName}</option>
+                                <c:forEach var="location" items="${requestScope.LIST_LOCATION}">
+                                    <option value="${location.locationId}">
+                                        ${location.locationName}
+                                    </option>
+                                </c:forEach>
+                            </select>
+                            <input class="btn-reset" type="reset" value="Reset"/></br>  
+                            Description: <textarea class="textarea"  name="description" cols="50" rows="30" form="fr" value="${sessionScope.SELECTED_EVENT.description}"></textarea> <p class="warning">${requestScope.ERROR_DESCRIPTION}</p>
+                            <button class="btn">
+                                <a style="text-decoration: none; color: #fff" href="${back}">Back</a>
+                            </button>
                         </div>
-                        <div class="fileUpload">
-                            <%@include file="fileUpload.jsp"%>
-                        </div>
+
+                        <!--                        <div class="fileUpload">
+                        <%--@include file="fileUpload.jsp"--%>
+                    </div> -->
+
                     </section>         
                     <section class="section2">
                         <ul>
@@ -140,6 +142,7 @@
                             </tbody>
                         </table>
                         <input class="btn" type="submit" name="action" value="Update Event"/>  
+                        <input class="btn" type="submit" name="action" value="Remove Event"/>
                     </section>
 
                 </form>        

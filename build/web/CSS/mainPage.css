@@ -313,15 +313,19 @@ body{
     text-decoration: none;
     color: #000;
 }
-#content .member-title{
+#content .member-title a{
     /*
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     */
     overflow: hidden;
-    text-overflow: ellipsis;
-    padding-bottom: 21%;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+    padding-bottom: 19%;
     height: 60px;
 }
 

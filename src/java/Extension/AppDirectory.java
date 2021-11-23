@@ -17,7 +17,7 @@ public class AppDirectory {
 
     private static final String T = "EventManagementFPT";
     private static final String DATA_DIR = "web\\images";
-    private static final String APP_DIR = "Documents\\Github\\Events-management-at-FPTU";
+    private static final String APP_DIR = "Documents\\Github\\Events-Management-FPTU";
 
     public static String getAppDir() {
         String path = System.getProperty("user.home");

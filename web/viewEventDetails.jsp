@@ -36,9 +36,10 @@
                     <c:if test="${SELECTED_EVENT!=null}">
                         <h2>${SELECTED_EVENT.title}</h2>
                         <p class="create-date">Created date: ${SELECTED_EVENT.createDatetime}</p>
-                        <p class="">Description: ${SELECTED_EVENT.description}</p>
+                        
                         <%--     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> --%>
                         <img src="./images/${SELECTED_EVENT.eventId}.png" onerror="this.src='./images/default.png'" width="100" height="120" />
+                       <p class=""> ${SELECTED_EVENT.description}</p>
                         <%--   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>--%>
                         <div class="content-bot">
                             <%--             <p>-Status: ${SELECTED_EVENT.status}</p> --%>
@@ -47,14 +48,14 @@
                             <p>   
                                 <%
                                     //test iframe
-                                    String description = "https://www.youtube.com/watch?v=b4fWaAibbIw  https://www.youtube.com/watch?v=-u875aiTbI0 ";
-                                    List<String> list = AI.detectEmbededLinks(description);
-                                    request.setAttribute("DESCRIPTION", list);
+//                                    String description = "https://www.youtube.com/watch?v=b4fWaAibbIw  https://www.youtube.com/watch?v=-u875aiTbI0 ";
+//                                    List<String> list = AI.detectEmbededLinks(description);
+//                                    request.setAttribute("DESCRIPTION", list);
                                     //end test
 %>
                                 
 
-
+<%--
                                 <c:forEach var="desc" varStatus="counter" items="${DESCRIPTION}">
                                     <c:if test="${counter.count % 2 != 0}">
                                         ${desc}
@@ -64,6 +65,7 @@
                                         </c:if>
                                     </c:forEach>
                             </p>
+--%>
                             <p class="body-1-p" style="text-align: right; font-style: italic"> ${SELECTED_EVENT.user.username}</p>
                             <%--      <p><i class ="ti-calendar"></i> ${SELECTED_EVENT.startDatetime}</p> --%>
 

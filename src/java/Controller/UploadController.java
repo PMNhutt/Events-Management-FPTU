@@ -23,8 +23,7 @@ import javax.servlet.http.HttpServlet;
 @WebServlet(name = "UploadController", urlPatterns = {"/UploadController"})
 public class UploadController extends HttpServlet {
 
-   private final String SUCCESS = "ViewOwnedEventController";
- //   private final String SUCCESS = "createEvent.jsp";
+    private final String SUCCESS = "ViewOwnedEventController";
     private final String FAIL = "fileUpload.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

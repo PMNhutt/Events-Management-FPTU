@@ -55,7 +55,7 @@
                         </select>
                         <input class="btn-reset" type="reset" value="Reset"/></br> 
                         <%--       <input class="textbox-des" type="text" name="description"/>  --%>
-                        Description:   <textarea class="textarea"  name="description" cols="50" rows="10" form="fr" ></textarea> <p class="warning">${requestScope.ERROR_DESCRIPTION}</p>
+                        Description:   <textarea class="textarea"  name="description" cols="50" rows="30" form="fr" ></textarea> <p class="warning">${requestScope.ERROR_DESCRIPTION}</p>
                     </div>
 
 
@@ -116,10 +116,10 @@
         </div>
         <%@include file="footer.jsp" %> 
 
-        <script>
+<!--        <script>
             function myFunction() {
                 var myWindow = window.open("fileUpload.jsp?id=”${id},", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
             }
-        </script>
+        </script>-->
     </body>
 </html>

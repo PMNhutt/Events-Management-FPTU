@@ -34,7 +34,6 @@ public class CreateEventController extends HttpServlet {
 
     private final String ERROR = "createEvent.jsp";
     private final String SUCCESS = "fileUpload.jsp";
-   // private final String SUCCESS = "ViewOwnedEventController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -99,6 +98,7 @@ public class CreateEventController extends HttpServlet {
                         request.setAttribute("id", edao.getLastId());
                     }
                 }
+                
             }
         } catch (Exception e) {
             log("Error at CreateEventController: " + e.toString());

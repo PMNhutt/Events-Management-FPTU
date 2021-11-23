@@ -45,7 +45,7 @@ public class ViewEventController extends HttpServlet {
                 int endPage = (int) Math.ceil(((double) countList / pageSize));
                 session.setAttribute("endPage", endPage);
                 request.setAttribute("LIST_EVENT", list);
-                request.setAttribute("EVENT_MESSAGE", "Events" );
+                request.setAttribute("EVENT_MESSAGE", "Page" + index);
                 request.setAttribute("Search", search);
                 session.setAttribute("index", index);
                 if (view_mode != null) {

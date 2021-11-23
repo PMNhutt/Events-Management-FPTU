@@ -95,7 +95,7 @@
                             <p style="font-size: 14px;" >${sessionScope.CURRENT_USER.username}</p>
                             <ul>
                                 <li class="last"> <a  href="viewSelf.jsp"><i class="fas fa-user"></i>Profile</a></li>
-                                <li class="last"> <a  href="#"><i class="fas fa-cog"></i>Settings</a></li>
+<!--                                <li class="last"> <a  href="#"><i class="fas fa-cog"></i>Settings</a></li>-->
                                 <li class="last"> <a  href="${logoutLink}" class="button-logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>                          
                         </div>                                           
