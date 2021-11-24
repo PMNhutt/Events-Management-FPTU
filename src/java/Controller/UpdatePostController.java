@@ -8,6 +8,7 @@ package Controller;
 import DAO.PostDAO;
 import DTO.PostDTO;
 import DTO.UserDTO;
+import Extension.AI;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -25,7 +26,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "UpdatePostController", urlPatterns = {"/UpdatePostController"})
 public class UpdatePostController extends HttpServlet {
 
-    private final String SUCCESS = "ViewOwnedPostController";
+    private final String SUCCESS = "fileUpload.jsp";
     private final String FAIL = "UpdatePostViewController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -54,6 +55,8 @@ public class UpdatePostController extends HttpServlet {
             }
 
             PostDAO dao = new PostDAO();
+            title = AI.inputVietnamese(title);
+            description = AI.inputVietnamese(description);
             PostDTO post=null;
             PostDTO post_old = dao.getPostById(postId);
             Date createDate = Date.valueOf(LocalDate.now());
@@ -61,12 +64,15 @@ public class UpdatePostController extends HttpServlet {
                 UserDTO user = (UserDTO) session.getAttribute("CURRENT_USER");
                 post = new PostDTO(postId, user, title, description, "", createDate, "Active");
                 if(dao.updatePost(post)){
+                    request.setAttribute("id", post.getPostId());
                     url=SUCCESS;
                 }
             }else{
                 post=post_old;
                 url=FAIL;
             }
+            
+            
             request.setAttribute("search", search);
             request.setAttribute("index", index);
         } catch (Exception e) {
