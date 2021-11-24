@@ -44,6 +44,7 @@ public class ViewPostController extends HttpServlet {
             if (tempIndex!=null && !tempIndex.isEmpty()) {
                 index = Integer.parseInt(tempIndex);
             }
+            
             int pageSize = 6;
             PostDAO pDao = new PostDAO();
             List<PostDTO> list = pDao.getListPostByPage(search, index, pageSize);

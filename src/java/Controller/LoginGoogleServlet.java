@@ -35,7 +35,7 @@ public class LoginGoogleServlet extends HttpServlet {
         String code;
         String url = FAIL;
         try {
-            int pageSize=6;
+            int pageSize = 6;
             code = request.getParameter("code");
             if (code == null || code.isEmpty()) {
                 url = FAIL;
@@ -49,27 +49,33 @@ public class LoginGoogleServlet extends HttpServlet {
                     if (user.isVerified_email() == true && user.getHd().equals("fpt.edu.vn")) {
                         user = ud.loginUser(user);
                         if (user != null) {
-                            HttpSession session = request.getSession();
-                            
-                            EventDAO eDao = new EventDAO();
-                            
-                            List<EventDTO> list_event = eDao.getListEventByPage("", 1, pageSize);
-                            List<SlotDTO> list_slot = new SlotDAO().getListSlots();
+                            if (user.getStatus().equals("Deactive")) {
+                                request.setAttribute("LOGIN_ERROR", "You are not permit to login!");
+                                url = FAIL;
+                            } else {
+                                HttpSession session = request.getSession();
 
-                            //check if login user is an admin
-                            if (user.getRole().equals("Admin")) {
-                                session.setAttribute("MODE", "USER_MODE");
+                                EventDAO eDao = new EventDAO();
+
+                                List<EventDTO> list_event = eDao.getListEventByPage("", 1, pageSize);
+                                List<SlotDTO> list_slot = new SlotDAO().getListSlots();
+
+                                //check if login user is an admin
+                                if (user.getRole().equals("Admin")) {
+                                    session.setAttribute("MODE", "USER_MODE");
+                                }
+                                session.setAttribute("CURRENT_USER", user);
+
+                                request.setAttribute("LIST_EVENT", list_event);
+                                request.setAttribute("LIST_SLOT", list_slot);
+                                session.setAttribute("index", 1);
+                                session.setAttribute("view_mode", "normal");
+                                int countList = eDao.countListEvent();
+                                int endPage = (int) Math.ceil(((double) countList / pageSize));
+                                session.setAttribute("endPage", endPage);
+                                url = SUCCESS;
                             }
-                            session.setAttribute("CURRENT_USER", user);                           
-                            
-                            request.setAttribute("LIST_EVENT", list_event);
-                            request.setAttribute("LIST_SLOT", list_slot);
-                            session.setAttribute("index", 1);
-                            session.setAttribute("view_mode", "normal");
-                            int countList = eDao.countListEvent();
-                            int endPage = (int) Math.ceil( ((double) countList/pageSize));
-                            session.setAttribute("endPage", endPage);
-                            url = SUCCESS;
+
                         } else {
                             request.setAttribute("LOGIN_ERROR", "Cannot retrieve user's information!");
                             url = FAIL;

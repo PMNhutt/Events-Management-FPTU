@@ -55,12 +55,12 @@
             </c:if>
 
 
-             <div class="test-paging">
+            <div class="test-paging">
 
-            <div class="pagination">
-                <ul><!--pages or li are comes from javascript -->  </ul>                                                                 
+                <div class="pagination">
+                    <ul><!--pages or li are comes from javascript -->  </ul>                                                                 
+                </div>
             </div>
-        </div>
         </div>
         <%@include file="footer.jsp" %>
         <script>

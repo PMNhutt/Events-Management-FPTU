@@ -16,14 +16,17 @@ and open the template in the editor.
 }
 
 body{
+    overflow: hidden;
     background: #dfe6e9;
 }
 
 
 
 .content{
+    margin-top: 9%;
     text-align: -webkit-center;
     height: 100%;
+    width: 100%;
 }
 
 .form{
@@ -58,7 +61,7 @@ body{
 
 .table-location{
     margin-top: 2%;
-    margin-bottom: 12%;
+    margin-bottom: 15%;
     border-collapse: collapse;
 
     font-size: 0.9em;

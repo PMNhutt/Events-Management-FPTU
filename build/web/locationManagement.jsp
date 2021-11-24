@@ -17,11 +17,11 @@
     <body>
         <%@include file="header.jsp" %>
         <div class="content">
-
+            <%--
             <form class="form" action="MainController">
                 <input class="textbox" type="text" placeholder="Search by Name" name="search">
-                <button class="btn" type="submit" name="action" value="Search">Search</button>
-            </form>
+                <button class="btn" type="submit" name="action" value="LoadLocations">Search</button>
+            </form> --%>
             <c:if test="${not empty requestScope.LIST_LOCATION}">
                 <table class="table-location" border="1">
                     <thead>
@@ -74,11 +74,13 @@
                     </form>
                     </tbody>                  
                 </table>
+                <%--
                 <div class="switchpage">
                     <c:forEach begin="1" end="${location_end_page}" var="i">
                         <a href="ViewLocationController?index=${i}&search=${Search}">${i}</a>
                     </c:forEach>
                 </div>
+                --%>
             </c:if>
             <c:if test="${empty requestScope.LIST_LOCATION}">
                 No record found!

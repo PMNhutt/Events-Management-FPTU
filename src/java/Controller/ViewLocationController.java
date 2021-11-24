@@ -31,7 +31,7 @@ public class ViewLocationController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = FAIL;
         try {
-            String search = request.getParameter("Search");
+            String search = request.getParameter("search");
             String index_temp = request.getParameter("index");
             int index = 1;
             if (index_temp != null && !index_temp.isEmpty()) {

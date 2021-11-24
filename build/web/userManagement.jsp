@@ -39,11 +39,12 @@
             request.setAttribute("LIST_ROLE", roleList);
         %>
          <div class ="content">
+             <%--
         <form class="form" action="MainController">
             <input class="textbox" type="text" placeholder="Search by Name" name="search">
             <button class="btn" type="submit" name="action" value="Search">Search</button>
         </form>
-                      
+                      --%>
         <c:if test="${not empty requestScope.LIST_USER}">
             <table class="table" border="1">
                 <thead>
@@ -85,7 +86,7 @@
 
                     <td>
                         <form action="MainController">
-
+                            <input type="hidden" name="userId" value="${dto.userId}"/>
                             <input type="hidden" name="search" value="${param.search}"/>                              
                             <input type="hidden" name="status" value="${dto.status}"/>   
                             <input type="hidden" name="action" value="ChangeStatus"/>

@@ -8,6 +8,7 @@ package Controller;
 import DAO.CommentDAO;
 import DAO.EventDAO;
 import DAO.FollowedEventDAO;
+import DAO.JoinEventDAO;
 import DTO.CommentDTO;
 import DTO.EventDTO;
 import DTO.UserDTO;
@@ -56,9 +57,12 @@ public class ViewEventDetailsController extends HttpServlet {
             }
             List<CommentDTO> listShortComment= cdao.getShortListEventComment(eventId, indexCmt, 10);
             UserDTO user = (UserDTO) session.getAttribute("CURRENT_USER");
+            JoinEventDAO jeD = new JoinEventDAO();
             if (event!=null && listShortComment!=null) {
                 List<String> descStrings = AI.detectEmbededLinks(event.getDescription());
                 int follow = new FollowedEventDAO().checkFollow(user, event);
+                int join = jeD.checkJoinEvent(event, user);
+                request.setAttribute("join", join);
                 request.setAttribute("follow", follow);
                 request.setAttribute("DESCRIPTION", descStrings);
                 session.setAttribute("SELECTED_EVENT", event);

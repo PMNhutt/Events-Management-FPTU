@@ -53,6 +53,11 @@
             <c:param name="search" value=""></c:param>  
             <c:param name="action" value="LoadPosts"></c:param>      
         </c:url>
+         <c:url var="view_post_edit" value="MainController">
+            <c:param name="index" value="1"></c:param>   
+            <c:param name="search" value=""></c:param>  
+            <c:param name="action" value="LoadPostsEditing"></c:param>           
+        </c:url>
         <c:url var="logoutLink" value="MainController">
             <c:param name="action" value="Logout"/>
         </c:url>
@@ -76,8 +81,14 @@
                     </li>
                     <li class="lm">
                         <c:if test="${sessionScope.CURRENT_USER.role eq 'Event Manager'}">
-                            <li class="lm"><a  class="l" href="createEvent.jsp">Create Event</a></li> 
-                            <li class="lm"><a class="l" href="${view_event_edit}">Edit Event</a></li> 
+                        <li class="lm"><a  class="l" href="createEvent.jsp">Create Event</a></li> 
+                        <li class="lm"><a class="l" href="${view_event_edit}">Edit Event</a></li> 
+                        </c:if>
+                    </li>
+                    <li class="lm">
+                        <c:if test="${sessionScope.CURRENT_USER.role eq 'Mentor/Lecturer'}">
+                            <li class="lm"><a class="l" href="createPost.jsp">Create Post</a></li> 
+                            <li class="lm"><a class="l" href="${view_post_edit}">Edit Post</a></li> 
                         </c:if>
                     </li>
                     <li class="lm">
@@ -95,7 +106,7 @@
                             <p style="font-size: 14px;" >${sessionScope.CURRENT_USER.username}</p>
                             <ul>
                                 <li class="last"> <a  href="viewSelf.jsp"><i class="fas fa-user"></i>Profile</a></li>
-<!--                                <li class="last"> <a  href="#"><i class="fas fa-cog"></i>Settings</a></li>-->
+                                <!--                                <li class="last"> <a  href="#"><i class="fas fa-cog"></i>Settings</a></li>-->
                                 <li class="last"> <a  href="${logoutLink}" class="button-logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>                          
                         </div>                                           

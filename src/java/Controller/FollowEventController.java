@@ -29,22 +29,6 @@ public class FollowEventController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = FAIL;
-//        try {
-//            HttpSession session = request.getSession();
-//            EventDTO selected_event = (EventDTO)session.getAttribute("SELECTED_EVENT");
-//            UserDTO user = (UserDTO)session.getAttribute("CURRENT_USER");
-//            FollowedEventDAO fDao = new FollowedEventDAO();
-//            boolean check = fDao.followEvent(user, selected_event);
-//            if (check) {
-//                int follow = fDao.checkFollow(user, selected_event);
-//                request.setAttribute("follow", follow);
-//                url=SUCCESS;
-//            }
-//        } catch (Exception e) {
-//            log("Error at FollowEventController: "+e.toString());
-//        } finally {
-//            request.getRequestDispatcher(url).forward(request, response);
-//        }
         try {
             HttpSession session = request.getSession();
             EventDTO selected_event = (EventDTO)session.getAttribute("SELECTED_EVENT");

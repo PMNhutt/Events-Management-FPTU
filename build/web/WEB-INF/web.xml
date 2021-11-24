@@ -4,10 +4,14 @@
         <servlet-name>LoginGoogleServlet</servlet-name>
         <servlet-class>Controller.LoginGoogleServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginGoogleServlet</servlet-name>
-        <url-pattern>/LoginGoogleServlet</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>ViewEventController</servlet-name>
+        <servlet-class>Controller.ViewEventController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewEventDetailsController</servlet-name>
+        <servlet-class>Controller.ViewEventDetailsController</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>ViewPostController</servlet-name>
         <servlet-class>Controller.ViewPostController</servlet-class>
@@ -16,7 +20,7 @@
         <servlet-name>ViewPostDetailsController</servlet-name>
         <servlet-class>Controller.ViewPostDetailsController</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>AddMoreEventCommentController</servlet-name>
         <servlet-class>Controller.AddMoreEventCommentController</servlet-class>
     </servlet>
@@ -33,13 +37,29 @@
         <servlet-class>Controller.LoadMorePostCommentController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ViewEventController</servlet-name>
-        <servlet-class>Controller.ViewEventController</servlet-class>
+        <servlet-name>CreatePostController</servlet-name>
+        <servlet-class>Controller.CreatePostController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ViewEventDetailsController</servlet-name>
-        <servlet-class>Controller.ViewEventDetailsController</servlet-class>
+        <servlet-name>UpdatePostController</servlet-name>
+        <servlet-class>Controller.UpdatePostController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemovePostController</servlet-name>
+        <servlet-class>Controller.RemovePostController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewOwnedPostController</servlet-name>
+        <servlet-class>Controller.ViewOwnedPostController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePostViewController</servlet-name>
+        <servlet-class>Controller.UpdatePostViewController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginGoogleServlet</servlet-name>
+        <url-pattern>/LoginGoogleServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewEventController</servlet-name>
         <url-pattern>/ViewEventController</url-pattern>
@@ -56,7 +76,7 @@
         <servlet-name>ViewPostDetailsController</servlet-name>
         <url-pattern>/ViewPostDetailsController</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AddMoreEventCommentController</servlet-name>
         <url-pattern>/AddMoreEventCommentController</url-pattern>
     </servlet-mapping>
@@ -71,6 +91,26 @@
     <servlet-mapping>
         <servlet-name>LoadMorePostCommentController</servlet-name>
         <url-pattern>/LoadMorePostCommentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreatePostController</servlet-name>
+        <url-pattern>/CreatePostController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePostController</servlet-name>
+        <url-pattern>/UpdatePostController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemovePostController</servlet-name>
+        <url-pattern>/RemovePostController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewOwnedPostController</servlet-name>
+        <url-pattern>/ViewOwnedPostController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePostViewController</servlet-name>
+        <url-pattern>/UpdatePostViewController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -87,4 +127,11 @@
         <res-auth>Container</res-auth>
         <res-sharing-scope>Shareable</res-sharing-scope>
     </resource-ref>
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
+        <param-value>
+            /WEB-INF/saveFiles/
+        </param-value>
+    </context-param>
 </web-app>

@@ -115,11 +115,5 @@
             </form>
         </div>
         <%@include file="footer.jsp" %> 
-
-<!--        <script>
-            function myFunction() {
-                var myWindow = window.open("fileUpload.jsp?id=”${id},", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
-            }
-        </script>-->
     </body>
 </html>

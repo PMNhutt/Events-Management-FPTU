@@ -24,6 +24,8 @@ import javax.servlet.http.HttpServlet;
 public class UploadController extends HttpServlet {
 
     private final String SUCCESS = "ViewOwnedEventController";
+    private final String SUCCESS_POST = "ViewOwnedPostController";
+
     private final String FAIL = "fileUpload.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -81,7 +83,12 @@ public class UploadController extends HttpServlet {
                             fi.write(file);
                         }
                     }
-                    url = SUCCESS;
+                    if(id.contains("P")){
+                        url = SUCCESS_POST;
+                    }
+                    else{
+                        url = SUCCESS;
+                    }
                 } catch (Exception e) {
                     log("Error at UploadController: " + e.toString());
                     request.setAttribute("ERROR_MESSAGE", "Failed");
